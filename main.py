@@ -3,7 +3,7 @@ import os
 import sys
 from logging import getLogger, INFO, error, info
 
-from dexmc.objects import DexBuilderHome, ClassCounter
+from objects import DexBuilderHome, ClassCounter
 
 
 def main() -> int:
