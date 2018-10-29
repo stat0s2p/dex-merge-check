@@ -1,0 +1,3 @@
+[submodule "enjarify"]
+	path = enjarify
+	url = git@github.com:Storyyeller/enjarify.git
