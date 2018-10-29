@@ -15,7 +15,6 @@ class ClassCounter:
     def __init__(self, class_name: str):
         self.class_name = class_name
         self.archives = list()
-        pass
 
     def push_class(self, archive: Archive):
         self.archives.append(archive)
@@ -134,7 +133,6 @@ class Archive:
                         cp = cp.replace('\\', '/')
                     cp = cp.lstrip('/')
                     visitor(cp)
-        pass
 
     @staticmethod
     def __process(dex: str) -> str:
