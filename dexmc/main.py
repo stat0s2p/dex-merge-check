@@ -9,7 +9,7 @@ from dexmc.objects import DexBuilderHome, ClassCounter
 def main() -> int:
     parser = argparse.ArgumentParser('check dex merge conflict.')
     parser.add_argument('dir', help='conflict module directory path.')
-    parser.add_argument('--verbose', help='show conflict class.')
+    parser.add_argument('--verbose', help='show conflict class.', action='store_true')
     args = parser.parse_args()
     dex_builder_dir = os.path.join(args.dir, 'build', 'intermediates', 'transforms', 'dexBuilder')
     dex_builder_homes = DexBuilderHome.get_homes(dex_builder_dir)
@@ -23,7 +23,7 @@ def main() -> int:
                     conflict_archives.add(archive.archive_name())
                 if args.verbose is not None:
                     error(f'[{home.name}]class path:{counter.class_name} has conflicts in:{counter.archives}.')
-        if conflict_archives is not None:
+        if conflict_archives:
             error(f'[{home.name}] has conflicts {len(conflict_archives)} libraries:{conflict_archives}.')
         else:
             info(f'[{home.name}] has no conflicts.')

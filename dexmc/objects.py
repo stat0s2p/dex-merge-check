@@ -72,6 +72,12 @@ class Archive:
         self.model = model
         self.archive_home = archive_home
 
+    def __str__(self):
+        return self.archive_name()
+
+    def __repr__(self):
+        return self.archive_name()
+
     def archive_name(self) -> str:
         name = self.model['name']  # type:str
         scope = self.model['scopes'][0]
